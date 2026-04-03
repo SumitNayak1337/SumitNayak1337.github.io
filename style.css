@@ -12,17 +12,21 @@
     --accent-cyan: #4ecdc4;
     --accent-blue: #667eea;
     --accent-purple: #764ba2;
-    --bg-light: #EEEEEE;
+    --accent-pink: #f093fb;
+    --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --accent-gradient-teal: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+    --bg-light: #f8f9fa;
     --shadow: rgba(0, 0, 0, 0.5);
     --glow: rgba(118, 171, 174, 0.4);
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 body {
-    font-family: 'JetBrains Mono', monospace;
-    background: var(--bg-dark);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #0a0e17 0%, #131a2b 100%);
     color: var(--bg-light);
     overflow-x: hidden;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 /* Animated background grid */
@@ -147,6 +151,8 @@ body {
     border-bottom: 2px solid rgba(118, 171, 174, 0.3);
     position: relative;
     gap: 60px;
+    background: linear-gradient(135deg, rgba(10, 14, 23, 0.9) 0%, rgba(19, 26, 43, 0.95) 100%);
+    backdrop-filter: blur(10px);
 }
 
 .hero-content {
@@ -1366,3 +1372,23 @@ a, button, .btn, input, textarea, select,
 
 /* Smooth scroll */
 html { scroll-behavior: smooth; }
+
+/* Typewriter Effect */
+.typed-text {
+    color: var(--accent-teal);
+}
+.type-cursor {
+    display: inline-block;
+    width: 3px;
+    background-color: var(--bg-light);
+    margin-left: 2px;
+    animation: blink 1s infinite;
+}
+.type-cursor.typing {
+    animation: none;
+}
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
