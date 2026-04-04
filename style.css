@@ -1270,26 +1270,27 @@ a, button, .btn, input, textarea, select,
 }
 
 /* ============================================
-   RESUME DOWNLOAD SECTION
+   RESUME HERO SECTION
 ============================================ */
-.resume-section {
+.resume-hero-section {
+    padding: 120px 0;
     border-bottom: none;
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.resume-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 60px;
-    background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-medium) 100%);
+.resume-hero-container {
+    background: linear-gradient(135deg, rgba(23, 32, 51, 0.8) 0%, rgba(10, 14, 23, 0.9) 100%);
     border: 1px solid rgba(118, 171, 174, 0.25);
     border-radius: 16px;
     padding: 60px;
+    text-align: center;
     position: relative;
     overflow: hidden;
 }
 
-.resume-container::before {
+.resume-hero-container::before {
     content: '';
     position: absolute;
     top: 0;
@@ -1299,25 +1300,56 @@ a, button, .btn, input, textarea, select,
     background: linear-gradient(90deg, var(--accent-teal), var(--accent-blue), var(--accent-purple));
 }
 
-.resume-content {
-    flex: 1;
+.resume-hero-glow {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 100%;
+    background: radial-gradient(ellipse at top, rgba(118, 171, 174, 0.1), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
 }
 
-.resume-content .section-title {
-    margin-bottom: 10px;
+.resume-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.resume-content .section-subtitle {
+.resume-hero-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    color: var(--accent-teal);
     margin-bottom: 20px;
-    margin-top: 10px;
+    text-shadow: 0 0 20px rgba(118, 171, 174, 0.4);
+    line-height: 1.1;
+    position: relative;
+    display: inline-block;
 }
 
-.resume-description {
-    color: rgba(238, 238, 238, 0.7);
-    font-size: 1rem;
-    line-height: 1.8;
-    margin-bottom: 30px;
-    max-width: 500px;
+.resume-hero-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-teal), transparent);
+    box-shadow: 0 0 10px var(--accent-teal);
+    margin-left: 0;
+}
+
+.resume-hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    margin-top: 30px;
 }
 
 .resume-btn {
@@ -1326,8 +1358,19 @@ a, button, .btn, input, textarea, select,
     letter-spacing: 1px;
 }
 
-.resume-graphic {
-    flex: 0 0 auto;
+.stat-num {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--accent-cyan);
+    text-shadow: 0 0 15px rgba(78, 205, 196, 0.4);
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: rgba(238, 238, 238, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .resume-icon-box {
@@ -1352,17 +1395,20 @@ a, button, .btn, input, textarea, select,
 }
 
 @media (max-width: 768px) {
-    .resume-container {
-        flex-direction: column;
-        text-align: center;
+    .resume-hero-container {
         padding: 40px 25px;
-        gap: 30px;
     }
-
-    .resume-description {
-        max-width: 100%;
+    .resume-hero-title {
+        font-size: 1.8rem;
     }
-
+    .resume-hero-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .resume-btn {
+        width: 100%;
+        text-align: center;
+    }
     .resume-icon-box {
         width: 100px;
         height: 120px;
