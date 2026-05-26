@@ -95,6 +95,10 @@ body {
     letter-spacing: 2px;
 }
 
+.nav-toggle {
+    display: none;
+}
+
 .nav-links {
     display: flex;
     gap: 30px;
@@ -1060,10 +1064,6 @@ footer p {
         height: 360px;
     }
 
-    .floating-card-img {
-        height: 270px;
-    }
-
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1076,22 +1076,94 @@ footer p {
 
 @media (max-width: 768px) {
     .container { padding: 15px; }
+    
+    /* Mobile Navigation & Toggle */
     .navbar { padding: 12px 20px; }
-    .nav-links { display: none; }
+    
+    .nav-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 26px;
+        height: 18px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 101;
+        padding: 0;
+    }
+
+    .hamburger-bar {
+        width: 100%;
+        height: 2px;
+        background-color: var(--accent-teal);
+        transition: all 0.3s ease;
+    }
+
+    /* Active state for hamburger lines turning into X */
+    .nav-toggle.active .hamburger-bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .nav-toggle.active .hamburger-bar:nth-child(2) {
+        opacity: 0;
+    }
+    .nav-toggle.active .hamburger-bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-links {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: -100%; /* off-screen by default */
+        width: 280px;
+        height: 100vh;
+        background: rgba(10, 14, 23, 0.96);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border-left: 1px solid rgba(118, 171, 174, 0.15);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        z-index: 99;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        padding: 40px 0;
+    }
+
+    .nav-links.active {
+        right: 0; /* slide in */
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        font-size: 1.1rem;
+        display: block;
+        padding: 10px 0;
+        width: 100%;
+    }
 
     section { padding: 70px 0; }
 
     .hero { padding: 100px 0 60px; }
 
-    .hero-image { flex: 0 0 260px; }
-
-    .floating-card {
-        width: 230px;
-        height: 300px;
+    .hero-image {
+        flex: 0 0 auto;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
     }
 
-    .floating-card-img {
-        height: 220px;
+    .floating-card {
+        width: min(280px, 80vw);
+        height: auto;
+        aspect-ratio: 3 / 4;
     }
 
     .projects-grid,
@@ -1437,4 +1509,89 @@ html { scroll-behavior: smooth; }
     0% { opacity: 1; }
     50% { opacity: 0; }
     100% { opacity: 1; }
+}
+
+/* ============================================
+   MOBILE RESPONSIVENESS AND ACCESSIBILITY ENHANCEMENTS
+   ============================================ */
+
+/* Disable custom cursor on touch/mobile devices and restore standard browser pointer feedback */
+@media (hover: none) and (pointer: coarse) {
+    body, html {
+        cursor: auto !important;
+    }
+    
+    a, button, .btn, input, textarea, select,
+    .gallery-item, .cert-card, .project-card,
+    .skill-category, .achievement-card, .strip-item,
+    .floating-card, .resume-icon-box, .nav-links a {
+        cursor: pointer !important;
+    }
+}
+
+/* Specific styling adjustments for small phone displays */
+@media (max-width: 480px) {
+    /* Layout padding scale down */
+    .container {
+        padding: 10px;
+    }
+    
+    section {
+        padding: 50px 0;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    /* Terminal improvements for long monospace commands and wrapping */
+    .terminal {
+        padding: 15px;
+    }
+    
+    .terminal-line {
+        flex-direction: column;
+        gap: 4px;
+        margin: 12px 0;
+        align-items: flex-start;
+    }
+    
+    .terminal-prompt {
+        font-size: 0.85rem;
+    }
+    
+    .terminal-content span {
+        font-size: 0.85rem;
+        word-break: break-word;
+        white-space: pre-wrap;
+    }
+    
+    /* Contact link items scaling and full-width block buttons */
+    .contact-links {
+        gap: 10px;
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .contact-links .btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px 20px;
+        font-size: 0.85rem;
+    }
+    
+    .resume-hero-actions {
+        width: 100%;
+    }
+    
+    .resume-hero-actions .btn {
+        width: 100%;
+        text-align: center;
+        padding: 14px 20px;
+        font-size: 0.9rem;
+    }
 }

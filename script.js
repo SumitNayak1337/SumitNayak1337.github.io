@@ -278,3 +278,34 @@ if (document.readyState !== "loading") {
 } else {
     document.addEventListener("DOMContentLoaded", initTypewriter);
 }
+
+// ============================================
+// MOBILE NAVIGATION MENU CONTROLLER
+// ============================================
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+const navItems = document.querySelectorAll('.nav-links a');
+
+if (navToggle && navLinks) {
+    navToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    // Close the navigation panel when user clicks an option
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+
+    // Close panel if clicked anywhere outside of the nav area
+    document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !navToggle.contains(e.target) && navLinks.classList.contains('active')) {
+            navToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        }
+    });
+}
