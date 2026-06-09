@@ -448,8 +448,8 @@ section {
 ============================================ */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 250px;
     gap: 20px;
 }
 
@@ -459,7 +459,6 @@ section {
     border-radius: 12px;
     border: 1px solid rgba(118, 171, 174, 0.2);
     background: var(--bg-card);
-    aspect-ratio: 16 / 10;
     cursor: pointer;
     transition: all 0.4s ease;
 }
@@ -467,7 +466,21 @@ section {
 .gallery-item:nth-child(1) {
     grid-column: 1 / 3;
     grid-row: 1 / 3;
-    aspect-ratio: auto;
+}
+
+.gallery-item:nth-child(2) {
+    grid-column: 3 / 5;
+    grid-row: 1 / 2;
+}
+
+.gallery-item:nth-child(3) {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+}
+
+.gallery-item:nth-child(4) {
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
 }
 
 .gallery-item img {
@@ -707,22 +720,58 @@ section {
 }
 
 /* ============================================
-   PROJECTS
+   PROJECTS — HORIZONTAL SLIDER
 ============================================ */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
+.projects-slider-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.projects-slider {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    flex: 1;
+    border-radius: 14px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    cursor: grab;
+}
+
+.projects-slider.active {
+    cursor: grabbing;
+    scroll-behavior: auto; /* To prevent jerky movements while dragging */
+}
+
+.projects-slider::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.projects-track {
+    display: flex;
+    gap: 24px;
+    width: max-content;
 }
 
 .project-card {
+    scroll-snap-align: center;
+    min-width: 380px;
+    flex: 0 0 380px;
     background: var(--bg-card);
     border: 1px solid rgba(118, 171, 174, 0.2);
     padding: 35px;
     position: relative;
     overflow: hidden;
     transition: all 0.4s ease;
-    border-radius: 10px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card::after {
@@ -747,8 +796,29 @@ section {
     box-shadow: 0 20px 60px rgba(118, 171, 174, 0.2);
 }
 
+.project-card-icon {
+    width: 54px;
+    height: 54px;
+    background: linear-gradient(135deg, rgba(118, 171, 174, 0.15), rgba(102, 126, 234, 0.15));
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: var(--accent-teal);
+    margin-bottom: 18px;
+    border: 1px solid rgba(118, 171, 174, 0.25);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .project-card-icon {
+    background: linear-gradient(135deg, rgba(118, 171, 174, 0.3), rgba(102, 126, 234, 0.3));
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(118, 171, 174, 0.3);
+}
+
 .project-card h3 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: var(--accent-teal);
     margin-bottom: 10px;
     font-weight: 800;
@@ -765,7 +835,36 @@ section {
     color: rgba(238, 238, 238, 0.75);
     line-height: 1.8;
     font-size: 0.95rem;
+    flex: 1;
 }
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-teal);
+    border: 1px solid rgba(118, 171, 174, 0.35);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+    align-self: flex-start;
+    letter-spacing: 0.5px;
+}
+
+.project-link:hover {
+    background: var(--accent-teal);
+    color: var(--bg-dark);
+    box-shadow: 0 5px 25px rgba(118, 171, 174, 0.3);
+    transform: translateY(-2px);
+}
+
+
 
 /* ============================================
    EXPERIENCE
@@ -826,6 +925,9 @@ section {
 }
 
 .cert-card {
+    scroll-snap-align: center;
+    min-width: 340px;
+    flex: 0 0 340px;
     background: var(--bg-card);
     border: 1px solid rgba(118, 171, 174, 0.25);
     border-radius: 12px;
@@ -1166,11 +1268,21 @@ footer p {
         aspect-ratio: 3 / 4;
     }
 
-    .projects-grid,
     .skills-grid,
     .achievements-grid,
     .certs-grid {
         grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        min-width: 300px;
+        flex: 0 0 300px;
+    }
+
+    .slider-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 0.85rem;
     }
 
     .gallery-grid {
@@ -1199,117 +1311,7 @@ footer p {
     transform: translateY(0);
 }
 
-/* Custom cursor */
-#cursor-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9997;
-}
 
-.cursor-dot {
-    width: 10px;
-    height: 10px;
-    background: var(--accent-cyan);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 10001;
-    transition: width 0.35s cubic-bezier(0.23, 1, 0.32, 1),
-                height 0.35s cubic-bezier(0.23, 1, 0.32, 1),
-                background 0.35s ease,
-                margin 0.35s cubic-bezier(0.23, 1, 0.32, 1),
-                box-shadow 0.35s ease;
-    box-shadow:
-        0 0 8px var(--accent-cyan),
-        0 0 20px rgba(78, 205, 196, 0.4),
-        0 0 40px rgba(78, 205, 196, 0.15);
-    margin-left: -5px;
-    margin-top: -5px;
-}
-
-.cursor-outline {
-    width: 40px;
-    height: 40px;
-    border: 2px solid rgba(118, 171, 174, 0.5);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 10000;
-    margin-left: -20px;
-    margin-top: -20px;
-    opacity: 0.6;
-    backdrop-filter: blur(1px);
-}
-
-.cursor-ring {
-    width: 55px;
-    height: 55px;
-    border: 1.5px dashed rgba(118, 171, 174, 0.25);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    margin-left: -27px;
-    margin-top: -27px;
-    opacity: 0.4;
-    animation: cursorSpin 8s linear infinite;
-}
-
-@keyframes cursorSpin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Cursor hover states */
-.cursor-dot.cursor-hover {
-    width: 50px;
-    height: 50px;
-    background: transparent;
-    border: 2px solid var(--accent-cyan);
-    margin-left: -25px;
-    margin-top: -25px;
-    mix-blend-mode: screen;
-    box-shadow:
-        0 0 20px var(--accent-cyan),
-        0 0 40px rgba(78, 205, 196, 0.3),
-        inset 0 0 20px rgba(78, 205, 196, 0.1);
-}
-
-.cursor-outline.cursor-hover {
-    width: 70px;
-    height: 70px;
-    margin-left: -35px;
-    margin-top: -35px;
-    border-color: var(--accent-cyan);
-    opacity: 0.9;
-    border-width: 1px;
-}
-
-.cursor-ring.cursor-hover {
-    width: 90px;
-    height: 90px;
-    margin-left: -45px;
-    margin-top: -45px;
-    border-color: rgba(78, 205, 196, 0.3);
-    opacity: 0.6;
-    animation-duration: 3s;
-}
-
-/* Hide default cursor */
-body {
-    cursor: none;
-}
-
-a, button, .btn, input, textarea, select,
-.gallery-item, .cert-card, .project-card,
-.skill-category, .achievement-card, .strip-item,
-.floating-card, .resume-icon-box, .nav-links a {
-    cursor: none;
-}
 
 /* Card spotlight glow that follows mouse */
 .project-card,
@@ -1515,19 +1517,7 @@ html { scroll-behavior: smooth; }
    MOBILE RESPONSIVENESS AND ACCESSIBILITY ENHANCEMENTS
    ============================================ */
 
-/* Disable custom cursor on touch/mobile devices and restore standard browser pointer feedback */
-@media (hover: none) and (pointer: coarse) {
-    body, html {
-        cursor: auto !important;
-    }
-    
-    a, button, .btn, input, textarea, select,
-    .gallery-item, .cert-card, .project-card,
-    .skill-category, .achievement-card, .strip-item,
-    .floating-card, .resume-icon-box, .nav-links a {
-        cursor: pointer !important;
-    }
-}
+
 
 /* Specific styling adjustments for small phone displays */
 @media (max-width: 480px) {
@@ -1593,5 +1583,16 @@ html { scroll-behavior: smooth; }
         text-align: center;
         padding: 14px 20px;
         font-size: 0.9rem;
+    }
+
+    /* Slider mobile adjustments */
+    .project-card {
+        min-width: 260px;
+        flex: 0 0 260px;
+        padding: 25px;
+    }
+
+    .projects-slider-wrapper {
+        gap: 0;
     }
 }

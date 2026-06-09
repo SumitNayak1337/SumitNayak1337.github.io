@@ -22,11 +22,7 @@
     <div class="bg-grid"></div>
     <div class="scanline"></div>
 
-    <!-- Custom cursor -->
-    <canvas id="cursor-canvas"></canvas>
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-    <div class="cursor-ring"></div>
+
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -42,6 +38,7 @@
             <li><a href="#projects">PROJECTS</a></li>
             <li><a href="#skills">SKILLS</a></li>
             <li><a href="#certifications">CERTS</a></li>
+            <li><a href="#gallery">GALLERY</a></li>
             <li><a href="#achievements">ACHIEVEMENTS</a></li>
             <li><a href="#resume" class="nav-resume-link"><i class="fas fa-file-pdf"></i> RESUME</a></li>
         </ul>
@@ -103,9 +100,9 @@
                         <span>whoami</span>
                     </div>
                     <div class="terminal-line">
-                        <span>Results-oriented Cybersecurity Analyst and Ethical Hacker with expertise in both Red Team
-                            and Blue Team operations. Active participant in Vulnerability Disclosure Programs with
-                            proven track record identifying critical security flaws.</span>
+                        <span>Results-oriented Cybersecurity Analyst with hands-on expertise in both Offensive (Red Team)
+                            and Defensive (Blue Team) security operations. Engineered a comprehensive automation framework that reduced bug bounty recon setup time
+                            by 80%. Demonstrated proficiency in vulnerability assessment, incident response, and SOC workflows.</span>
                     </div>
                     <div class="terminal-line">
                         <span class="terminal-prompt">sumit@cyberops:~$</span>
@@ -134,12 +131,12 @@
             <p class="section-subtitle fade-in">// career path</p>
 
             <div class="experience-item fade-in">
-                <h3>Cybersecurity Training</h3>
+                <h3>Cybersecurity Trainee &amp; IBM SkillBuild Intern</h3>
                 <div class="experience-meta">ISOEH, Bhubaneswar &amp; IBM SkillBuild</div>
                 <ul>
-                    <li>Comprehensive training in practical ethical hacking, penetration testing, and security mitigation strategies.</li>
-                    <li>Hands-on experience in SOC, digital forensics, incident response, and cybersecurity fundamentals.</li>
-                    <li>Completed IBM SkillBuild internship focusing on threat intelligence, network defense, and vulnerability management.</li>
+                    <li>Hands-on Technical Training: Practical expertise in ethical hacking and penetration testing across web, network, and mobile platforms.</li>
+                    <li>SOC &amp; Incident Response: Direct experience in Security Operations Center (SOC) workflows, digital forensics, and live incident response simulations.</li>
+                    <li>IBM SkillBuild Internship: Executed threat intelligence, network defense, and vulnerability management modules within simulated enterprise environments.</li>
                 </ul>
             </div>
 
@@ -147,8 +144,9 @@
                 <h3>Bug Bounty Hunter &amp; Security Researcher</h3>
                 <div class="experience-meta">Independent / Freelance • Ongoing</div>
                 <ul>
-                    <li>Responsible Disclosure: Reported critical security vulnerabilities to Citi Group through proper disclosure channels.</li>
-                    <li>Vulnerability Research: Identified and reported signup flow vulnerability in SaaS platform (Rocketlane).</li>
+                    <li>Responsible Disclosure (Citi Group): Professionally identified and reported critical security vulnerabilities to Citi Group via official disclosure channels.</li>
+                    <li>Platform Security (Rocketlane): Discovered and mitigated a significant signup flow vulnerability within the Rocketlane SaaS platform.</li>
+                    <li>Active Vulnerability Research: Engaged in ongoing research across public bug bounty programs using advanced reconnaissance and OWASP Top 10 methodologies.</li>
                 </ul>
             </div>
         </section>
@@ -158,24 +156,63 @@
         <section id="projects">
             <h2 class="section-title fade-in">PROJECTS</h2>
             <p class="section-subtitle fade-in">// building offensive tools</p>
-            <div class="projects-grid">
-                <div class="project-card fade-in">
-                    <h3>Master Automation Framework</h3>
-                    <div class="project-tech">Bash • Python • Nuclei • Subfinder</div>
-                    <p>
-                        Engineered comprehensive automation framework integrating reconnaissance tools with Linux environment setup.<br><br>
-                        Automated subdomain enumeration, port scanning, tool installation, and system hardening, reducing setup time by 80%.<br><br>
-                        Streamlined bug bounty workflow through continuous asset discovery and pentest environment provisioning.
-                    </p>
-                </div>
 
-                <div class="project-card fade-in">
-                    <h3>CyberRange (SIEM &amp; SOC Lab)</h3>
-                    <div class="project-tech">VirtualBox • Splunk/ELK • Wireshark</div>
-                    <p>
-                        Architected virtualized security operations center to simulate real-world cyber attacks (DDoS, port scanning, malware).<br><br>
-                        Developed hands-on proficiency in log analysis, threat detection, incident response, and security event correlation.
-                    </p>
+            <div class="projects-slider-wrapper fade-in">
+                <div class="projects-slider" id="projectsSlider">
+                    <div class="projects-track" id="projectsTrack">
+
+                        <div class="project-card">
+                            <div class="project-card-icon"><i class="fas fa-robot"></i></div>
+                            <h3>Nexus — AI Agent</h3>
+                            <div class="project-tech">Python • LangChain • OpenAI API</div>
+                            <p>
+                                Intelligent AI agent designed to automate cybersecurity research workflows, threat intelligence gathering, and vulnerability analysis using large language models.
+                            </p>
+                            <a href="https://github.com/SumitNayak1337/streamlit_app" target="_blank" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
+                        </div>
+                             <div class="project-card">
+                            <div class="project-card-icon"><i class="fas fa-terminal"></i></div>
+                            <h3>Killer Penguin (Automation Framework)</h3>
+                            <div class="project-tech">Python • Bash • Nuclei • Subfinder</div>
+                            <p>
+                                A comprehensive automation script for bug bounty hunters. Integrates Linux-based tools to automate subdomain enumeration, port scanning, and system hardening, reducing setup time by 80%.
+                            </p>
+                            <a href="https://github.com/SumitNayak1337/KillerPenguin" target="_blank" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-card-icon"><i class="fas fa-shield-halved"></i></div>
+                            <h3>CyberRange (SIEM &amp; SOC Lab)</h3>
+                            <div class="project-tech">VirtualBox • Splunk/ELK • Wireshark</div>
+                            <p>
+                                Architected a virtualized security operations center to simulate real-world cyber attacks including DDoS, port scanning, and malware propagation with hands-on Splunk/ELK log analysis.
+                            </p>
+                            <a href="https://github.com/SumitNayak1337/CyberRange" target="_blank" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-card-icon"><i class="fas fa-network-wired"></i></div>
+                            <h3>Cisco Packet Tracer Projects</h3>
+                            <div class="project-tech">Cisco PKT • Networking • VLAN • Routing</div>
+                            <p>
+                                Collection of enterprise network topology designs and simulations using Cisco Packet Tracer — covering VLANs, inter-VLAN routing, ACLs, and firewall configurations.
+                            </p>
+                            <a href="https://github.com/SumitNayak1337/cisco_pkt_files" target="_blank" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-card-icon"><i class="fas fa-book-open"></i></div>
+                            <h3>CTF Checklists & Cyber Notes</h3>
+                            <div class="project-tech">Notion • CTF • Pentesting • Recon</div>
+                            <p>
+                                Curated checklists and methodology guides for CTF competitions, alongside a comprehensive Notion-based knowledge base covering cybersecurity fundamentals for quick recap.
+                            </p>
+                            <a href="https://github.com/SumitNayak1337/CTFs-checklist" target="_blank" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
+                            <a href="#" target="_blank" class="project-link" style="margin-left: 10px;"><i class="fas fa-external-link-alt"></i> Notion ID / Notes</a>
+                        </div>
+
+
+                    </div>
                 </div>
             </div>
         </section>
@@ -289,38 +326,116 @@
         <section id="certifications">
             <h2 class="section-title fade-in">CERTIFICATIONS</h2>
             <p class="section-subtitle fade-in">// verified credentials</p>
-            <div class="certs-grid">
-                <div class="cert-card fade-in">
-                    <div class="cert-icon">🛡️</div>
-                    <h3>CNSP</h3>
-                    <div class="cert-issuer">Certified Network Security Practitioner</div>
-                    <p class="cert-description">
-                        Validates expertise in network security fundamentals including firewall management,
-                        intrusion detection, VPN configuration, and secure network architecture.
-                    </p>
-                    <span class="cert-badge">NETWORK SECURITY</span>
-                </div>
+            <div class="projects-slider-wrapper fade-in">
+                <div class="projects-slider" id="certsSlider">
+                    <div class="projects-track" id="certsTrack">
+                        
+                        <div class="cert-card" style="display: flex; flex-direction: column;">
+                            <div class="cert-icon">⚡</div>
+                            <h3>CBTP</h3>
+                            <div class="cert-issuer">SecOps Group</div>
+                            <p class="cert-description" style="flex: 1;">
+                                Certified Blue Team Practitioner. Validates practical skills in defensive security, log analysis, threat hunting, and incident response.
+                            </p>
+                            <a href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXQRqkRk9SE0a6B8uMRI+23qoW8yU7DRidLRLZ/X58Qtz3r1/UNZ4Crt+XixCtrnZVlx+r1F+3/GRVl5tD9oVF14=" target="_blank" class="project-link" style="margin-top: 15px; align-self: flex-start;"><i class="fas fa-external-link-alt"></i> View Certificate</a>
+                        </div>
 
-                <div class="cert-card fade-in">
-                    <div class="cert-icon">🔐</div>
-                    <h3>CSEDP</h3>
-                    <div class="cert-issuer">The SecOps Group</div>
-                    <p class="cert-description">
-                        Certified Security Expert in defensive and proactive security operations,
-                        covering threat hunting, incident response, and security monitoring.
-                    </p>
-                    <span class="cert-badge">SECURITY OPS</span>
-                </div>
+                        <div class="cert-card" style="display: flex; flex-direction: column;">
+                            <div class="cert-icon">🔐</div>
+                            <h3>CSEDP</h3>
+                            <div class="cert-issuer">SecOps Group</div>
+                            <p class="cert-description" style="flex: 1;">
+                                Certified Security Engineering &amp; Defensive Professional. Focuses on robust security engineering, secure architecture, and proactive defensive operations.
+                            </p>
+                            <a href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXW7RC35kWacQkaz4Adj82p9TRKjU2ZPtn5kjQxuprzsKznYoPdiS2j6JJOHy7nYQDPuya1TaRQTYPz4BJ8kibPc=" target="_blank" class="project-link" style="margin-top: 15px; align-self: flex-start;"><i class="fas fa-external-link-alt"></i> View Certificate</a>
+                        </div>
 
-                <div class="cert-card fade-in">
-                    <div class="cert-icon">⚡</div>
-                    <h3>ADCS</h3>
-                    <div class="cert-issuer">C-DAC (Centre for Development of Advanced Computing)</div>
-                    <p class="cert-description">
-                        Advanced Diploma in Cyber Security covering penetration testing,
-                        malware analysis, digital forensics, and enterprise security management.
-                    </p>
-                    <span class="cert-badge">ADVANCED CYBERSEC</span>
+                        <div class="cert-card" style="display: flex; flex-direction: column;">
+                            <div class="cert-icon">🛡️</div>
+                            <h3>CNSP</h3>
+                            <div class="cert-issuer">SecOps Group</div>
+                            <p class="cert-description" style="flex: 1;">
+                                Certified Network Security Practitioner. Validates expertise in network security fundamentals including firewall management, intrusion detection, and secure network architecture.
+                            </p>
+                            <a href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXXSFix3xSGsT/LOcL7+BgHDYc7ON4XRjJeoPtvIjV4/nhusXcUD8WAwEqitJoDNCqiTzh3no8Y1BUluNd8/CGJg=" target="_blank" class="project-link" style="margin-top: 15px; align-self: flex-start;"><i class="fas fa-external-link-alt"></i> View Certificate</a>
+                        </div>
+
+                        <div class="cert-card" style="display: flex; flex-direction: column;">
+                            <div class="cert-icon">💼</div>
+                            <h3>AICTE IBM Internship</h3>
+                            <div class="cert-issuer">AICTE & IBM SkillBuild</div>
+                            <p class="cert-description" style="flex: 1;">
+                                Completed IBM SkillBuild internship focusing on threat intelligence, network defense, and vulnerability management.
+                            </p>
+                            <a href="certs/AICTE_IBM_Internship.pdf" target="_blank" class="project-link" style="margin-top: 15px; align-self: flex-start;"><i class="fas fa-file-pdf"></i> View Document</a>
+                        </div>
+
+                        <div class="cert-card" style="display: flex; flex-direction: column;">
+                            <div class="cert-icon">🎓</div>
+                            <h3>CSEH</h3>
+                            <div class="cert-issuer">C-DAC</div>
+                            <p class="cert-description" style="flex: 1;">
+                                Certified Security and Ethical Hacking professional.
+                            </p>
+                            <a href="certs/CDAC_CSEH.pdf" target="_blank" class="project-link" style="margin-top: 15px; align-self: flex-start;"><i class="fas fa-file-pdf"></i> View Document</a>
+                        </div>
+
+                        <div class="cert-card" style="display: flex; flex-direction: column;">
+                            <div class="cert-icon">🏆</div>
+                            <h3>ISO 27001-2022</h3>
+                            <div class="cert-issuer">SkillFront</div>
+                            <p class="cert-description" style="flex: 1;">
+                                Certified in ISO 27001:2022 Information Security Management Systems.
+                            </p>
+                            <a href="certs/SkillFront-SFE0161d77aca64a-75007816895575.pdf" target="_blank" class="project-link" style="margin-top: 15px; align-self: flex-start;"><i class="fas fa-file-pdf"></i> View Certificate</a>
+                        </div>
+
+                        <div class="cert-card" style="display: flex; flex-direction: column;">
+                            <div class="cert-icon">🎓</div>
+                            <h3>ADCS</h3>
+                            <div class="cert-issuer">ISOEH</div>
+                            <p class="cert-description" style="flex: 1;">
+                                Advanced Diploma in Cyber Security covering enterprise security management.
+                            </p>
+                            <span class="cert-badge" style="margin-top: 15px;">ADVANCED DIPLOMA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== GALLERY SECTION ===== -->
+        <section id="gallery">
+            <h2 class="section-title fade-in">GALLERY</h2>
+            <p class="section-subtitle fade-in">// moments &amp; memories</p>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="1762868502770.jpg" alt="Event Moment 1">
+                    <div class="gallery-overlay">
+                        <h3>Event Highlights</h3>
+                        <p>Captured moments</p>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="1752913267529.jpg" alt="Event Moment 2">
+                    <div class="gallery-overlay">
+                        <h3>Workshop</h3>
+                        <p>Learning sessions</p>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="1752913268752.jpg" alt="Event Moment 3">
+                    <div class="gallery-overlay">
+                        <h3>Community</h3>
+                        <p>Collaborative efforts</p>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="1762868492788.jpg" alt="Event Moment 4">
+                    <div class="gallery-overlay">
+                        <h3>Competition</h3>
+                        <p>Hackathon focus</p>
+                    </div>
                 </div>
             </div>
         </section>
