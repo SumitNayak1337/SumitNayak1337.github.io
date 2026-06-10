@@ -160,6 +160,7 @@ if (navToggle && navLinks) {
         e.stopPropagation();
         navToggle.classList.toggle('active');
         navLinks.classList.toggle('active');
+        document.body.classList.toggle('nav-open');
     });
 
     // Close the navigation panel when user clicks an option
@@ -167,6 +168,7 @@ if (navToggle && navLinks) {
         item.addEventListener('click', () => {
             navToggle.classList.remove('active');
             navLinks.classList.remove('active');
+            document.body.classList.remove('nav-open');
         });
     });
 
@@ -175,6 +177,7 @@ if (navToggle && navLinks) {
         if (!navLinks.contains(e.target) && !navToggle.contains(e.target) && navLinks.classList.contains('active')) {
             navToggle.classList.remove('active');
             navLinks.classList.remove('active');
+            document.body.classList.remove('nav-open');
         }
     });
 }

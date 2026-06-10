@@ -29,6 +29,10 @@ body {
     line-height: 1.7;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 /* Animated background grid */
 .bg-grid {
     position: fixed;
@@ -404,6 +408,20 @@ h1 {
 
 .btn-primary::before {
     background: var(--bg-light);
+}
+
+.btn-secondary {
+    border-color: rgba(118, 171, 174, 0.5);
+    color: var(--accent-teal);
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent-teal);
+}
+
+/* Body scroll lock when mobile nav is open */
+body.nav-open {
+    overflow: hidden;
 }
 
 /* ============================================
@@ -1220,7 +1238,8 @@ footer p {
         right: -100%; /* off-screen by default */
         width: 280px;
         height: 100vh;
-        background: rgba(10, 14, 23, 0.96);
+        height: 100dvh;
+        background: rgba(10, 14, 23, 0.98);
         backdrop-filter: blur(25px);
         -webkit-backdrop-filter: blur(25px);
         border-left: 1px solid rgba(118, 171, 174, 0.15);
@@ -1279,18 +1298,60 @@ footer p {
         flex: 0 0 300px;
     }
 
+    /* Fix cert cards for mobile — match project card behavior */
+    .cert-card {
+        min-width: 280px;
+        flex: 0 0 280px;
+        padding: 28px;
+    }
+
     .slider-arrow {
         width: 40px;
         height: 40px;
         font-size: 0.85rem;
     }
 
+    /* Fix gallery grid — force all items to single column */
     .gallery-grid {
         grid-template-columns: 1fr;
+        grid-auto-rows: 220px;
     }
 
-    .gallery-item:nth-child(1) {
+    .gallery-item:nth-child(1),
+    .gallery-item:nth-child(2),
+    .gallery-item:nth-child(3),
+    .gallery-item:nth-child(4) {
         grid-column: auto;
+        grid-row: auto;
+    }
+
+    /* Fix hero buttons — stack vertically at 768px, not just 480px */
+    .contact-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .contact-links .btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px 20px;
+    }
+
+    /* Fix footer social links — stack on mobile */
+    .social-links {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .social-links a {
+        width: 80%;
+        text-align: center;
+    }
+
+    /* Terminal line wrap fix */
+    .terminal-line {
+        flex-wrap: wrap;
     }
 
     h1 { font-size: 2.5rem; }
@@ -1537,6 +1598,13 @@ html { scroll-behavior: smooth; }
     .subtitle {
         font-size: 1.1rem;
     }
+
+    /* Hero badge — reduce letter-spacing to prevent overflow */
+    .hero-badge {
+        letter-spacing: 1.5px;
+        font-size: 0.7rem;
+        padding: 6px 14px;
+    }
     
     /* Terminal improvements for long monospace commands and wrapping */
     .terminal {
@@ -1551,26 +1619,17 @@ html { scroll-behavior: smooth; }
     }
     
     .terminal-prompt {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
     
     .terminal-content span {
-        font-size: 0.85rem;
+        font-size: 0.82rem;
         word-break: break-word;
         white-space: pre-wrap;
     }
     
-    /* Contact link items scaling and full-width block buttons */
-    .contact-links {
-        gap: 10px;
-        width: 100%;
-        flex-direction: column;
-    }
-    
+    /* Contact link items scaling */
     .contact-links .btn {
-        width: 100%;
-        text-align: center;
-        padding: 12px 20px;
         font-size: 0.85rem;
     }
     
@@ -1592,7 +1651,28 @@ html { scroll-behavior: smooth; }
         padding: 25px;
     }
 
+    .cert-card {
+        min-width: 240px;
+        flex: 0 0 240px;
+        padding: 22px;
+    }
+
     .projects-slider-wrapper {
         gap: 0;
+    }
+
+    /* Gallery images — shorter on small phones */
+    .gallery-grid {
+        grid-auto-rows: 180px;
+    }
+
+    /* Footer social links — full width */
+    .social-links a {
+        width: 100%;
+    }
+
+    /* Experience item — reduce hover shift on mobile */
+    .experience-item:hover {
+        transform: translateX(5px);
     }
 }
